@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weltmeister</title>
+
+    <style type="text/css">
+        html, body {
+            background-color: #000;
+            color: #fff;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+
+    <script type="text/javascript" src="lib/impact/impact.js"></script>
+    <script type="text/javascript" src="lib/weltmeister/weltmeister.js"></script>
+
+    <script type="text/javascript">
+        // This is the main configuration block for Weltmeister.
+
+        // 1. **Path to your Game's Libraries**
+        // This tells Weltmeister where to find your custom entity and level files.
+        wm.config.project.paths = [
+            'lib/game/entities/',
+            'lib/game/levels/'
+        ];
+
+        // 2. **Path to your Game's Media (Image) Files**
+        // This tells Weltmeister where to find your tile sets and sprites.
+        wm.config.project.entityFiles = [
+            'lib/game/entities/entity-player.js',
+            'lib/game/entities/entity-zombie.js',
+            'lib/game/entities/entity-levelexit.js'
+        ];
+        
+        // 3. **The file where collision map data is saved.**
+        // This MUST be a file the web server can write to (requires PHP setup).
+        // If you are using a non-PHP server, you must adjust the saver.
+        wm.config.api.save = 'lib/weltmeister/api/save.php';
+        wm.config.api.glob = 'lib/weltmeister/api/glob.php';
+
+
+        // 4. **Tile Set Directories**
+        // Tells Weltmeister where to scan for tile images like `tileset.png`.
+        wm.config.project.imageDirs = [
+            'media/'
+        ];
+
+        // 5. **Default Level Settings**
+        // These settings define the initial size of a new level.
+        wm.config.level.tile_size = 16;
+        wm.config.level.width = 1024;
+        wm.config.level.height = 768;
+
+    </script>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+</html>
